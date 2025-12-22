@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -13,12 +14,22 @@ app.post("/login", (req, res) => {
     // check credentials
     if (username == "santa" && password == "hoho") {
         // correcte credentials
+
         res.send({ message: "Login successful" });
     } else {
         //inncorrect credentials
         res.status(401).send(new Error("Invalid credentials"));
+
     }
+
+
+bcrypt.hash(myPlaintextPassword, 10, function(err, hash) {
+    // Store hash in your password DB.
 });
+
+
+});
+
  
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
