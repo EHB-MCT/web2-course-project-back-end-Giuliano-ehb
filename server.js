@@ -1,29 +1,25 @@
-// server.js (WORKING DUMMY VERSION)
 const express = require("express");
 const app = express();
-const cors = require('cors')
+const cors = require("cors");
 const port = 3000;
-
-
-app.use(express.json());
+ 
 app.use(cors());
-
-// Dummy GET route
-app.get("/", (req, res) => {
-  res.send({ message: "Hello from dummy server!" });
+app.use(express.json());
+ 
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
+    console.log(req.body);
+ 
+    // check credentials
+    if (username == "santa" && password == "hoho") {
+        // correcte credentials
+        res.send({ message: "Login successful" });
+    } else {
+        //inncorrect credentials
+        res.status(401).send(new Error("Invalid credentials"));
+    }
 });
-
-// Another dummy route
-app.get("/test", (req, res) => {
-  res.send({ status: "ok", data: "This is just dummy data" });
-});
-
-// Dummy POST route
-app.post("/echo", (req, res) => {
-  res.send({ received: req.body });
-});
-
-// Start server
+ 
 app.listen(port, () => {
-  console.log(`Dummy server running at http://localhost:${port}`);
+    console.log(`Example app listening on port ${port}`);
 });

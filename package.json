@@ -20,6 +20,7 @@
   "homepage": "https://github.com/EHB-MCT/web2-course-project-back-end-Giuliano-ehb#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongodb": "^7.0.0"
   }
 }
