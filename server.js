@@ -1,34 +1,53 @@
-const bcrypt = require('bcrypt');
 const express = require("express");
-const app = express();
 const cors = require("cors");
+const bcrypt = require("bcrypt");
+
+const connectDB = require("./db");
+const Users = require("./models/Users");
+
 const port = 3000;
- 
+
+
+const app = express();
 app.use(cors());
 app.use(express.json());
- 
-app.post("/login", (req, res) => {
-    const { username, password } = req.body;
-    console.log(req.body);
- 
-    // check credentials
-    if (username == "santa" && password == "hoho") {
-        // correcte credentials
 
-        res.send({ message: "Login successful" });
-    } else {
-        //inncorrect credentials
-        res.status(401).send(new Error("Invalid credentials"));
 
+// register
+
+app.post("/register", async (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ error: "email and password need te be filled in." });
     }
 
+  
+  
+    try {
+        const db = await connectDB();
+        const users = Users(db);
 
-bcrypt.hash(myPlaintextPassword, 10, function(err, hash) {
-    // Store hash in your password DB.
+        // hashed wachtwoord
+
+      
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+       // user opslaan in database
+
+        await users.insertOne({ email, password: hashedPassword });
+
+    
+    
+        res.json({ message: "user succsefully registered." });
+    } catch (err) {
+        res.status(500).json({ error: "something went wrong." });
+    }
 });
 
 
-});
+
+ 
 
  
 app.listen(port, () => {
