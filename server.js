@@ -47,6 +47,50 @@ app.post("/register", async (req, res) => {
 
 
 
+// login
+
+
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    
+    if (!email || !password) {
+        return res.status(400).json({ error: "fill email and password." });
+    }
+
+    try {
+       
+        // connectie met database
+
+        const db = await connectDB();
+        const users = Users(db);
+
+     // user zoeken in database , als hij niet bestaat error geven
+        
+        const user = await users.findOne({ email });
+
+        if (!user) {
+            return res.status(401).json({ error: "email or password is incrorrect." });
+        }
+
+       
+
+
+        const correct = await bcrypt.compare(password, user.password);
+
+        if (!correct) {
+            return res.status(401).json({ error: "email or password is incorrect." });
+        }
+
+      
+
+
+        res.json({ message: "Login succesfull", user });
+    } catch (err) {
+        res.status(500).json({ error: "something went wrong on the server." });
+    }
+});
+
  
 
  
