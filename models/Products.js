@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose"); 
 
-const productSchema = new mongoose.Schema({
-  name: String,
-  wear: String,
-  type: String,
-  imagelink: String
-});
+const productSchema = new mongoose.Schema
+({ 
+  name: String, 
+  wear: String, 
+  type: String, 
+  imagelink: String }); 
 
-export default mongoose.model("Products", productSchema);
+module.exports = mongoose.model("Products", productSchema);
