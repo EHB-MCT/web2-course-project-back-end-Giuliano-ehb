@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 
 const connectDB = require("./db");
 const Users = require("./models/Users");
+const productRoutes = require("./routes/products");
 
 const port = 3000;
 
@@ -11,6 +12,7 @@ const port = 3000;
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(productRoutes);
 
 
 // register
