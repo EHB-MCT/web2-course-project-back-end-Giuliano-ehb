@@ -4,7 +4,7 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 
 const connectDB = require("./db");
-const Users = require("./models/Users");
+const User = require("./models/Users");
 const productRoutes = require("./routes/products");
 
 const port = 3000;
@@ -20,33 +20,28 @@ connectDB();
 // register
 
 app.post("/register", async (req, res) => {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    if (!email || !password) {
-        return res.status(400).json({ error: "email and password need te be filled in." });
-    }
+  if (!email || !password) {
+    return res.status(400).json({ error: "email and password need to be filled in" });
+  }
 
-  
-  
-    try {
-        const db = await connectDB();
-        const users = Users(db);
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-        // hashed wachtwoord
+    await User.create({
+      email,
+      password: hashedPassword
+    });
 
-      
-        const hashedPassword = await bcrypt.hash(password, 10);
+    res.json({ message: "user successfully registered." });
+ 
 
-       // user opslaan in database
+} catch (error) {
+    console.error(error);
 
-        await users.insertOne({ email, password: hashedPassword });
-
-    
-    
-        res.json({ message: "user succsefully registered." });
-    } catch (err) {
-        res.status(500).json({ error: "something went wrong." });
-    }
+    res.status(500).json({ error: "something went wrong on the sever." });
+  }
 });
 
 
@@ -55,45 +50,35 @@ app.post("/register", async (req, res) => {
 
 
 app.post("/login", async (req, res) => {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    
-    if (!email || !password) {
-        return res.status(400).json({ error: "fill email and password." });
+  if (!email || !password) {
+    return res.status(400).json({ error: "email and password need to be filled in" });
+  }
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(401).json({ error: "email or password is incorrect" });
     }
 
-    try {
-       
-        // connectie met database
+    const correct = await bcrypt.compare(password, user.password);
 
-        const db = await connectDB();
-        const users = Users(db);
-
-     // user zoeken in database , als hij niet bestaat error geven
-        
-        const user = await users.findOne({ email });
-
-        if (!user) {
-            return res.status(401).json({ error: "email or password is incrorrect." });
-        }
-
-       
-
-
-        const correct = await bcrypt.compare(password, user.password);
-
-        if (!correct) {
-            return res.status(401).json({ error: "email or password is incorrect." });
-        }
-
-      
-
-
-        res.json({ message: "Login succesfull", user });
-    } catch (err) {
-        res.status(500).json({ error: "something went wrong on the server." });
+    if (!correct) {
+      return res.status(401).json({ error: "email or password is incorrect" });
     }
+
+    res.json({ message: "login succesfull", user });
+  } catch (error) {
+   
+   
+    console.error(error);
+
+    res.status(500).json({ error: "something went wrong on the server." });
+  }
 });
+
 
  
 
