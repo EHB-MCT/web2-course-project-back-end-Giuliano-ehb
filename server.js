@@ -14,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(productRoutes);
+app.use("/", require("./routes/outfits"));
 connectDB();
 
 
