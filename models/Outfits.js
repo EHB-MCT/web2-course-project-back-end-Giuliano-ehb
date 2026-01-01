@@ -9,7 +9,9 @@ const outfitsSchema = new mongoose.Schema({
   shirt: { type: String, default: null },
   bottom: { type: String, default: null },
   madeBy: { type: String, required: true },
-  imagelink: { type: String, default: null },
+  imageLinkTop: { type: String, default: null },
+  imageLinkShirt: { type: String, default: null },
+  imageLinkBottom: { type: String, default: null }
 
 });
 

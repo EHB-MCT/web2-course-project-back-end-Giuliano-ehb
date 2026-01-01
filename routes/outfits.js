@@ -28,7 +28,7 @@ router.get("/outfits/:userId", async (req, res) => {
 
 router.post("/outfits", async (req, res) => {
   try {
-    const { userId, outfitName, top, shirt, bottom } = req.body;
+    const { userId, outfitName, top, shirt, bottom , imageLinkTop , imageLinkShirt , imageLinkBottom } = req.body;
 
 
 
@@ -52,7 +52,9 @@ router.post("/outfits", async (req, res) => {
       top,
       shirt,
       bottom,
-      imagelink,
+      imageLinkTop,
+      imageLinkShirt,
+      imageLinkBottom,
      
       madeBy: user?.email || "unknown"
 
