@@ -20,4 +20,53 @@ router.get("/outfits/:userId", async (req, res) => {
 });
 
 
+
+
+// outfit posten van user
+
+
+
+router.post("/outfits", async (req, res) => {
+  try {
+    const { userId, outfitName, top, shirt, bottom } = req.body;
+
+
+
+    if (!userId || !outfitName) {
+
+
+      return res.status(400).json({ error: "all fields musti be filled in" });
+    }
+
+
+
+
+
+    // email user
+
+    const user = await User.findById(userId);
+
+    const newOutfit = await Outfits.create({
+      userId,
+      outfitName,
+      top,
+      shirt,
+      bottom,
+      imagelink,
+     
+      madeBy: user?.email || "unknown"
+
+    });
+
+    res.status(201).json(newOutfit);
+
+  } catch (error) {
+
+
+    console.log(error);
+    res.status(500).json({ error: "cannot create outfit" });
+  }
+});
+
+
 module.exports = router;
