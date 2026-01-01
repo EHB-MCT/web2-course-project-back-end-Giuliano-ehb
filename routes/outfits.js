@@ -49,9 +49,6 @@ router.post("/outfits", async (req, res) => {
     const newOutfit = await Outfits.create({
       userId,
       outfitName,
-      top,
-      shirt,
-      bottom,
       imageLinkTop,
       imageLinkShirt,
       imageLinkBottom,
