@@ -1,6 +1,9 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=21875297)
-# Your project name ✨
-A short description of your project. Aim for 2-3 lines. \
+# SWAGBOOK STUDIO ✨
+
+Swagbook is an interactive streetwear outfit builder that allows users to curate and experiment with complete looks digitally.
+The project focuses on identity, swag, and self-expression by combining fashion culture with an intuitive, modern interface.
+
 
 Website url: [website.be](website.be) (optional)
 
