@@ -40,6 +40,44 @@ router.post("/outfits", async (req, res) => {
 
 
 
+// outfit wijzigen van user
+
+
+router.put("/outfits/:id", async (req, res) => {
+  try {
+
+    const { outfitName, imageLinkTop, imageLinkShirt, imageLinkBottom } = req.body;
+
+    const updated = await Outfits.findUpdate(
+      req.params.id,
+      {
+        outfitName,
+        imageLinkTop,
+        imageLinkShirt,
+        imageLinkBottom
+      },
+     
+      { new: true }
+    );
+
+    res.json(updated);
+
+  } catch (error) {
+
+
+    console.log(error);
+    
+   
+    res.status(500).json({ error: "cannot update outfit" });
+  }
+});
+
+
+
+
+
+
+
 
 
     // email user
