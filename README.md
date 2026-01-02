@@ -17,6 +17,11 @@ Password: test
 
 ## Sources 🗃️
 List **ALL your used sources** here:
+- [Hashing passwords](https://www.freecodecamp.org/news/how-to-hash-passwords-with-bcrypt-in-nodejs/) used in server.js on lines 4 , 33 , 37 and 69.
+- [Getting started database](https://www.mongodb.com/docs/drivers/node/current/get-started/)
+- [Getting started with Mongoose](https://www.mongodb.com/docs/drivers/node/current/integrations/mongoose/mongoose-get-started/)
+- [Putting up the database](https://www.youtube.com/watch?v=MWWcrvCNKmk) used for the database in mongodb atlas.
+- [Cloudinary](https://cloudinary.com/) used to get an image link.
 - Used a tutorial or example code? Place a link to them here. (youtube, website, github, ...) and **list the files in which they were used**.
 - Used ChatGPT? Generate a ChatGPT share link: options (three dots) > share and **list the files in which it was used**. This will not work if you have uploaded images in your prompt. In that case, add screenshots instead.
 
