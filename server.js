@@ -22,8 +22,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/products", productRoutes); 
-app.use("/outfits", outfitsRoutes);
+app.use("/", productRoutes);
+app.use("/", outfitsRoutes);
 app.use("/", require("./routes/outfits"));
 app.use("/outfits", require("./routes/outfits"));
 app.use("/products", productRoutes);
