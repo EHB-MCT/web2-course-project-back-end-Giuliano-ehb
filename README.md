@@ -22,9 +22,3 @@ List **ALL your used sources** here:
 - [Getting started with Mongoose](https://www.mongodb.com/docs/drivers/node/current/integrations/mongoose/mongoose-get-started/) used for the mongoose schema
 - [Putting up the database](https://www.youtube.com/watch?v=MWWcrvCNKmk) used for the database in mongodb atlas.
 - [Cloudinary](https://cloudinary.com/) used to get an image link.
-
-It's not enough to only list the sources here, also add the sources to the top of the files in which you used them and indicate the specific parts of the code which are not your own (by writing comments and refering to the correct source(s)). \
-IF you use a source as the base/start for a file, then first place the source in the file and **COMMIT it IMMEDIATELY, BEFORE** adding your own code or modifying it. \
-**ALWAYS** use concise BUT CLEAR commit messages!
-
-Have a look at the example repository: https://github.com/EHB-MCT/example-readme
