@@ -1,3 +1,8 @@
+// https://www.freecodecamp.org/news/how-to-hash-passwords-with-bcrypt-in-nodejs/
+// bcrypt used for login and register used on lines 4 , 33 , 37 and 69
+
+// https://www.mongodb.com/docs/drivers/node/current/integrations/mongoose/mongoose-get-started/
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
