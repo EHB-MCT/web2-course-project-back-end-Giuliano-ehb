@@ -74,6 +74,25 @@ router.put("/outfits/:id", async (req, res) => {
 
 
 
+// outfit deleten
+
+router.delete("/outfits/:id", async (req, res) => {
+  try {
+    const deleted = await Outfits.findByIdAndDelete(req.params.id);
+
+    if (!deleted) {
+      return res.status(404).json({ message: "Outfit not found" });
+    }
+
+    res.json({ message: "Outfit deleted sucssesfully" });
+  } 
+  catch (error) {
+
+    console.error("Delete error:", error);
+
+    res.status(500).json({ error: "cannot delete outfit" });
+  }
+});
 
 
 
