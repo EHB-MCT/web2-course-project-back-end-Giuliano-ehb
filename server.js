@@ -10,18 +10,23 @@ const bcrypt = require("bcrypt");
 
 const connectDB = require("./db");
 const User = require("./models/Users");
-app.use("/outfits", require("./routes/outfits"));
-app.use("/products", productRoutes);
+const productRoutes = require("./routes/products"); 
+const outfitsRoutes = require("./routes/outfits");
+
 
 
 const port = 3000;
 
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
-app.use(productRoutes);
+app.use("/products", productRoutes); 
+app.use("/outfits", outfitsRoutes);
 app.use("/", require("./routes/outfits"));
+app.use("/outfits", require("./routes/outfits"));
+app.use("/products", productRoutes);
 connectDB();
 
 
