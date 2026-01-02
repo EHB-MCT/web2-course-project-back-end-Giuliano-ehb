@@ -10,7 +10,9 @@ const bcrypt = require("bcrypt");
 
 const connectDB = require("./db");
 const User = require("./models/Users");
-const productRoutes = require("./routes/products");
+app.use("/outfits", require("./routes/outfits"));
+app.use("/products", productRoutes);
+
 
 const port = 3000;
 

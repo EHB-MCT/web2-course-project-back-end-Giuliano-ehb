@@ -76,7 +76,7 @@ router.put("/outfits/:id", async (req, res) => {
 
 // outfit deleten
 
-router.delete("/outfits/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const deleted = await Outfits.findByIdAndDelete(req.params.id);
 
