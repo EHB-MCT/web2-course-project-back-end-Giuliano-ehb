@@ -19,7 +19,7 @@ Password: test
 List **ALL your used sources** here:
 - [Hashing passwords](https://www.freecodecamp.org/news/how-to-hash-passwords-with-bcrypt-in-nodejs/) used in server.js on lines 4 , 33 , 37 and 69.
 - [Getting started database](https://www.mongodb.com/docs/drivers/node/current/get-started/) used for the connection with the database / URI.
-- [Getting started with Mongoose](https://www.mongodb.com/docs/drivers/node/current/integrations/mongoose/mongoose-get-started/)
+- [Getting started with Mongoose](https://www.mongodb.com/docs/drivers/node/current/integrations/mongoose/mongoose-get-started/) used for the mongoose schema
 - [Putting up the database](https://www.youtube.com/watch?v=MWWcrvCNKmk) used for the database in mongodb atlas.
 - [Cloudinary](https://cloudinary.com/) used to get an image link.
 
