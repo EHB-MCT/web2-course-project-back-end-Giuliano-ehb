@@ -10,8 +10,10 @@ Website url: [website.be](website.be) (optional)
 If you want to add more sections, please do so after the existing ones (avoid burying your sources under a lot of text!).
 
 ## Up & running (optional) 🏃‍➡️
-This should contain step by step instructions to run your project (delete this section if it's not relevant). \
-Also include login credentials or other vital information if needed.
+start server : node server.js or nodemon server.js
+User: test
+Email: test@test
+Password: test
 
 ## Sources 🗃️
 List **ALL your used sources** here:
