@@ -5,7 +5,7 @@ Swagbook is an interactive streetwear outfit builder that allows users to curate
 The project focuses on identity, swag, and self-expression by combining fashion culture with an intuitive, modern interface.
 
 
-Website url: [website.be](https://ehb-mct.github.io/web2-course-project-back-end-Giuliano-ehb/) (optional)
+Website url: [SWAGBOOK STUDIO](https://ehb-mct.github.io/web2-course-project-back-end-Giuliano-ehb/)
 
 If you want to add more sections, please do so after the existing ones (avoid burying your sources under a lot of text!).
 
